@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Myapps</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<link href='//fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+</head>
+
+<body>
+
+	<div class='sidebar'>
+		<%= render 'layouts/teafinder/header' %>
+	</div>
+
+	<div id="master_frame_container" <% if session[:night_mode] == "on" %>class="night_mode"<% end %>>
+			
+		<a class='menu_button'><%= image_tag "btn_menu.png" %></a>
+
+		<div class="main_menu">
+			<%= render 'layouts/teafinder/header' %>
+		</div>
+		
+		<% if controller.class.parent.to_s.upcase == "teafinder".upcase %>
+			<%= render 'layouts/teafinder/nav' %>
+		<% end 	%>
+
+		<div class="page_title">
+			<%= @page_title %>
+		</div>
+
+		<% if notice %>
+			<%= format_message(notice,"success") %>
+		<% end %>
+		<% if alert %>
+		  <%= format_message(alert) %>
+		<% end %>
+
+		<div class="content clearfix">																	
+			<%= yield %>			
+		</div>
+
+		<% if controller.class.parent.to_s.upcase == "teafinder".upcase %>
+			<%= render 'layouts/teafinder/footer' %>
+		<% end 	%>
+
+	</div>
+
+</body>
+</html>

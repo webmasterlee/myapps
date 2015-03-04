@@ -1,0 +1,34 @@
+<% @page_title = "Tea Chooser" %>
+
+<% if @tea.nil? %>
+  <h1>Your search produce no results.</h1>  
+<% else %>
+  <h1>Today you should drink some <b><%= @tea.name %></b></h1><br/><br/>
+<% end %>
+
+<b>Would you like to filter the suggestions?</b><br/><br/>
+
+<form action="<%= teafinder_teas_random_path %>" method="get">
+
+  <div class="table first_cell_right first_cell_valign">
+    <div class="tr">
+      <div class="td">Search by Type</div>
+      <div class="td">
+         <%= select_tag 'tea_type_id', options_from_collection_for_select(@tea_types, 'id', 'type_name'), prompt: "Choose..." %>
+       </div>
+    </div>
+
+    <div class="tr">
+      <div class="td">Search by Style</div>
+      <div class="td">
+          <%= select_tag 'tea_style_id', options_from_collection_for_select(@tea_styles, 'id', 'style'), prompt: "Choose..." %>
+       </div>
+    </div>
+
+    <div class="tr">
+      <div class="td"></div>
+      <div class="td"><%= submit_tag "Generate Random Tea", :name => nil, :class => "btn" %></div>
+    </div>
+  </div>
+
+</form>

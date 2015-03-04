@@ -1,0 +1,35 @@
+<% @page_title = "Your teas" %>
+
+<% if @teas.any? %>
+
+	<select name="sort">
+		<option value="">Sort By...</option>
+		<option value="<%= teafinder_teas_path(:sort => 'name', :sortType => @sortType) %>">Name</option>
+		<option value="<%= teafinder_teas_path(:sort => 'display', :sortType => @sortType) %>">Stock</option>
+		<option value="<%= teafinder_teas_path(:sort => 'tea_type_id', :sortType => @sortType) %>">Type</option>
+		<option value="<%= teafinder_teas_path(:sort => 'tea_style_id', :sortType => @sortType) %>">Style</option>
+	</select>
+
+	<% @teas.each do |tea| %>
+		<div class="tea clearfix <% if tea.display.zero? %>out_of_stock<% end %>">
+			<div class="edit_icon">
+				<%= link_to image_tag("btn_edit.png"), edit_teafinder_tea_path(tea) %>
+			</div>
+			<div class="tea_name_atts">
+				<div class="tea_name"><%= link_to tea.name, tea, :class => "tea_name_link" %></div>
+				<div class="tea_atts">
+					<%= tea.tea_type.type_name %>, <%= tea.tea_style.style %>
+					<% if tea.display.zero? %>, Out of Stock<% end %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+<% else %>
+	No teas added yet.<br/>
+<% end %>
+
+<br>
+
+<% if user_signed_in? %>
+	<%= link_to 'New Tea', new_teafinder_tea_path %>
+<% end %>

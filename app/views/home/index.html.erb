@@ -1,0 +1,44 @@
+<% @page_title = "My Apps" %>
+
+<script>
+//add break between each word, add even/odd to each div
+function addBreak() {
+	$.each($(".app"), function(key, value) { 
+
+		//var newtext = $(".app_name", this).text().split(" ").join("<br/>");
+		//$(".app_name", this).html(newtext);
+		if ((key + 1)  % 2 === 0) {
+			$(this).addClass("even");
+		} else {			
+			$(this).addClass("odd");					
+		}
+	});
+}
+
+//make all divs the same height
+function equalHeight(group) {
+	var tallest = 0;
+	group.each(function() {
+		var thisHeight = $(this).height();			
+		if(thisHeight > tallest) {
+			tallest = thisHeight;
+		}
+	});
+	group.height(tallest+2);//chrome measurements are off so add a few pixels
+}
+
+$(document).ready(function() {
+	addBreak();
+	equalHeight($(".app"));	 	
+});
+</script>
+
+<div class="app">
+	<div class="app_name">
+		<%= link_to "TeaFinder", teafinder_teas_path %>
+	</div>
+</div>
+
+<div class="app">
+	<div class="app_name"><a href="">CheckBook</a></div>
+</div>

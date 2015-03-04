@@ -1,0 +1,20 @@
+<% @page_title = "Tea Styles" %>
+
+<% if @tea_styles.any? %>
+  <table class="table_spacing">
+    <tbody>
+      <% @tea_styles.each do |tea_style| %>
+        <tr>
+          <td><%= link_to image_tag("btn_edit.png"), edit_teafinder_tea_style_path(tea_style) %>
+            </td>
+          <td><%= tea_style.style %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  No tea styles added yet.<br/>
+<% end %>
+<br>
+
+<%= link_to 'New Tea style', new_teafinder_tea_style_path %>

@@ -1,0 +1,2 @@
+module Teafinder::TeaStylesHelper
+end

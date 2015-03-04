@@ -1,0 +1,19 @@
+
+
+<%= form_for(@tea_style) do |f| %>
+
+  <%= format_message(@tea_style.errors.full_messages) %>
+
+  <div class="table first_cell_right first_cell_valign">
+    <div class="tr">
+      <div class="td"><%= f.label :style %></div>
+      <div class="td"><%= f.text_field :style, autofocus: true %></div>
+    </div>
+
+    <div class="tr">
+      <div class="td"></div>
+      <div class="td"><%= f.submit "Submit", :class => "btn" %></div>
+    </div>
+  </div>
+
+<% end %>

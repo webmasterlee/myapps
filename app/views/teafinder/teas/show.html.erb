@@ -1,0 +1,29 @@
+<% @page_title = @tea.name %>
+
+<div class="table first_cell_bold">
+	<div class="tr">
+		<div class="td">Type</div>
+		<div class="td"><%= @tea.tea_type.type_name %></div>
+	</div>
+
+	<div class="tr">
+		<div class="td">Style</div>
+		<div class="td"><%= @tea.tea_style.style %></div>
+	</div>
+
+	<div class="tr">
+		<div class="td">Stock</div>
+		<div class="td">
+			<% if @tea.display.zero? %>
+				Out
+			<% elsif %>
+				In
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<br/>
+
+<%= link_to 'Edit', edit_teafinder_tea_path(@tea) %> |
+<%= link_to 'Teas', teafinder_teas_path %>
