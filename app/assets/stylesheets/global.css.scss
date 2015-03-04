@@ -37,6 +37,8 @@ a:link, a:visited {
 
 a:hover {text-decoration:none;}
 
+p {margin-bottom: 12px;}
+
 h1,h2,h3,h4,h5,h6 {}
 
 h1 {
@@ -204,6 +206,7 @@ a.selected {
 	.header_left {float: none;width: auto;line-height: 40px;}
 	.header_right {float: none;width: auto;text-align: left;line-height: 30px;margin-top: 15px;}
 	.header_right span {display: none;}
+	.nav a {font-size: 15px;}
 }
 	
 /*
@@ -332,9 +335,11 @@ border-color 0.3s ease-in;
 
 /* FORMS */
 
-input[type="text"], input[type="email"], input[type="password"], input[type="datefield"], input[type="file"]  {
+textarea, input[type="text"], input[type="email"], input[type="password"], input[type="datefield"], input[type="file"]  {
 	border: 2px solid #ffdb7a;
 	padding: 8px 6px;
+	font-family: $primary_font;
+	font-size: 16px;
 }
 input[type="file"]  {
 	height: auto;
@@ -343,13 +348,20 @@ select {padding: 5px 3px;}
 .indent {margin-left: 20px;margin-top: 3px;}
 .hr {border-top:1px solid #bcbcbc;clear:both;height:1px;margin:10px 0;}
 hr {display:none;}
+
+textarea {
+			max-width: 250px;
+		    width: 95%;
+		}
 /*OTHER*/
 
-.tea {margin: 20px 0;}
-.tea_name {
+.list_item {margin: 20px 0;}
+
+.list_item_name {
     margin-bottom: 5px;
-    }
-.tea_name a {
+}
+
+.list_item_name a {
 	font-size: 22px;
     font-weight: bold;
     color: #e14d39;
@@ -357,14 +369,15 @@ hr {display:none;}
     text-transform: none;
 }
 
-.out_of_stock .tea_name a {color: #bbb;}
-.tea_name_atts {float: left;}
+.out_of_stock .list_item_name a {color: #bbb;}
+
+.list_item_details {float: left;}
+
 .edit_icon {
 	float: left;
 	margin-right: 7px;
     margin-top: 4px;
 }
-.tea_atts {}
 
 .out_of_stock {
     color: #bbb;

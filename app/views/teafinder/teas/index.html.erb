@@ -11,13 +11,13 @@
 	</select>
 
 	<% @teas.each do |tea| %>
-		<div class="tea clearfix <% if tea.display.zero? %>out_of_stock<% end %>">
+		<div class="list_item clearfix <% if tea.display.zero? %>out_of_stock<% end %>">
 			<div class="edit_icon">
 				<%= link_to image_tag("btn_edit.png"), edit_teafinder_tea_path(tea) %>
 			</div>
-			<div class="tea_name_atts">
-				<div class="tea_name"><%= link_to tea.name, tea, :class => "tea_name_link" %></div>
-				<div class="tea_atts">
+			<div class="list_item_details">
+				<div class="list_item_name"><%= link_to tea.name, tea, :class => "tea_name_link" %></div>
+				<div class="list_item_atts">
 					<%= tea.tea_type.type_name %>, <%= tea.tea_style.style %>
 					<% if tea.display.zero? %>, Out of Stock<% end %>
 				</div>
@@ -30,6 +30,4 @@
 
 <br>
 
-<% if user_signed_in? %>
-	<%= link_to 'New Tea', new_teafinder_tea_path %>
-<% end %>
+<%= link_to 'New Tea', new_teafinder_tea_path %>

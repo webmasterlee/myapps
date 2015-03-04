@@ -29,6 +29,18 @@
 		</div>
 
 		<div class="tr">
+			<div class="td"><%= f.label :url %></div>
+			<div class="td"><%= f.text_field :url %></div>
+		</div>
+
+		<div class="tr">
+			<div class="td"><%= f.label :notes %></div>
+			<div class="td">
+				<%= f.text_area :notes, :rows => 6 %>
+			</div>
+		</div>
+
+		<div class="tr">
 			<div class="td"></div>
 			<div class="td"><%= f.submit "Submit", :class => "btn" %></div>
 		</div>

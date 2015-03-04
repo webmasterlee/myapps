@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224153907) do
+ActiveRecord::Schema.define(version: 20150304180955) do
 
   create_table "teafinder_tea_styles", force: true do |t|
     t.string   "style"
@@ -32,10 +32,20 @@ ActiveRecord::Schema.define(version: 20150224153907) do
     t.integer  "tea_style_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "notes"
+    t.string   "url"
   end
 
   add_index "teafinder_teas", ["tea_style_id"], name: "index_teafinder_teas_on_tea_style_id"
   add_index "teafinder_teas", ["tea_type_id"], name: "index_teafinder_teas_on_tea_type_id"
+
+  create_table "teafinder_wishlists", force: true do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

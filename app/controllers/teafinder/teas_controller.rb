@@ -88,6 +88,6 @@ class Teafinder::TeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tea_params
-      params.require(:teafinder_tea).permit(:name, :display, :tea_type_id, :tea_style_id)
+      params.require(:teafinder_tea).permit(:name, :display, :tea_type_id, :tea_style_id, :url, :notes)
     end
 end

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :teafinder do
+    resources :wishlists
+  end
+
   devise_for :users
   get 'home/index'
   root 'home#index'
