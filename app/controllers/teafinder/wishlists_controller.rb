@@ -56,7 +56,7 @@ class Teafinder::WishlistsController < ApplicationController
   def destroy
     @wishlist.destroy
     respond_to do |format|
-      format.html { redirect_to teafinder_wishlists_url, notice: 'Wishlist was successfully destroyed.' }
+      format.html { redirect_to teafinder_wishlists_url, notice: 'Wishlist was successfully deleted.' }
       format.json { head :no_content }
     end
   end

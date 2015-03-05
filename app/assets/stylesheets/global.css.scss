@@ -335,6 +335,18 @@ border-color 0.3s ease-in;
 
 /* FORMS */
 
+input[type="text"], 
+input[type="password"], 
+input[type="datefield"], 
+input[type="file"], 
+input[type="email"], 
+input[type="number"], 
+select,
+textarea {
+	max-width: 250px;
+    width: 95%;
+}
+
 textarea, input[type="text"], input[type="email"], input[type="password"], input[type="datefield"], input[type="file"]  {
 	border: 2px solid #ffdb7a;
 	padding: 8px 6px;
@@ -349,10 +361,6 @@ select {padding: 5px 3px;}
 .hr {border-top:1px solid #bcbcbc;clear:both;height:1px;margin:10px 0;}
 hr {display:none;}
 
-textarea {
-			max-width: 250px;
-		    width: 95%;
-		}
 /*OTHER*/
 
 .list_item {margin: 20px 0;}
