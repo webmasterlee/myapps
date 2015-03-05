@@ -11,7 +11,7 @@
 	</select>
 
 	<% @teas.each do |tea| %>
-		<div class="list_item clearfix <% if tea.display.zero? %>out_of_stock<% end %>">
+		<div class="list_item clearfix <% if tea.display == 0 %>out_of_stock<% end %>">
 			<div class="edit_icon">
 				<%= link_to image_tag("btn_edit.png"), edit_teafinder_tea_path(tea) %>
 			</div>
