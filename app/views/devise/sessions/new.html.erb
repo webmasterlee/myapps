@@ -2,7 +2,7 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   
-<div class="table first_cell_right first_cell_valign">
+<div class="table first_cell_right first_cell_valign full_width_table_on_mobile">
 	<div class="tr">
 		<div class="td"><%= f.label :email %></div>
 		<div class="td"><%= f.email_field :email, autofocus: true %></div>

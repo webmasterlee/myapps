@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 	<%= format_message(devise_error_messages!) %>
 
-	<div class="table first_cell_valign first_cell_right">
+	<div class="table first_cell_valign first_cell_right full_width_table_on_mobile">
 		<div class="tr">
 			<div class="td"><%= f.label :email %></div>
 			<div class="td"><%= f.email_field :email, autofocus: true %></div>

@@ -315,6 +315,7 @@ border-color 0.3s ease-in;
 
 @media handheld, only screen and (max-width: 450px) {
 	.first_cell_right .td:first-child {text-align:left;vertical-align: top;}
+	.full_width_table_on_mobile {width: 100%;}
 	.fifty_fifty .td {width: 100%;}
 	.forty_sixty .td:first-child {width: 100%;}
 	.forty_sixty .td:first-child + td {width: 100%;}
