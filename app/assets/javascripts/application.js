@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).on('page:change', function() {
+/*$(document).on('page:change', function() {
 	$('.menu_button').on('click', function() {
 		$('#master_frame_container').toggleClass('isOpen');
 	});
-});
+});*/
