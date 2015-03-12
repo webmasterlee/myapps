@@ -17,6 +17,5 @@
 $(document).on('page:change', function() {
 	$('.menu_button').on('click', function() {
 		$('#master_frame_container').toggleClass('isOpen');
-		console.log("hi");
 	});
 });

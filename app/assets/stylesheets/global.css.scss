@@ -278,7 +278,7 @@ border-color 0.3s ease-in;
   
   .success {background-image:url(image_path('success_bg.png'));color:#555555;}   
   .info {background-image:url(image_path('info_bg.png'));color:#555555;}   
-  .errormsg {background-image: url(image_path('error_bg.png'));color:#dd0000;}
+  .errormsg {background-color: #f8ff7a;color:#dd0000;}
   
   .error_list {padding-left: 20px;}
   .error_list li {margin: 8px 0;}

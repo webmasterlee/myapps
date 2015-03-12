@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150304180955) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "teafinder_tea_styles", force: true do |t|
     t.string   "style"
     t.datetime "created_at"
@@ -36,8 +39,8 @@ ActiveRecord::Schema.define(version: 20150304180955) do
     t.string   "url"
   end
 
-  add_index "teafinder_teas", ["tea_style_id"], name: "index_teafinder_teas_on_tea_style_id"
-  add_index "teafinder_teas", ["tea_type_id"], name: "index_teafinder_teas_on_tea_type_id"
+  add_index "teafinder_teas", ["tea_style_id"], name: "index_teafinder_teas_on_tea_style_id", using: :btree
+  add_index "teafinder_teas", ["tea_type_id"], name: "index_teafinder_teas_on_tea_type_id", using: :btree
 
   create_table "teafinder_wishlists", force: true do |t|
     t.string   "name"
@@ -62,7 +65,7 @@ ActiveRecord::Schema.define(version: 20150304180955) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
