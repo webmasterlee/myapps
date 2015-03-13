@@ -1,6 +1,8 @@
 <div class="footer">
-	<%= link_to 'Tea Types', teafinder_tea_types_path %> |
-	<%= link_to "Tea Prep Styles", teafinder_tea_styles_path %> |
+	<%= link_to 'Types', teafinder_tea_types_path %> 
+	<span>|</span>
+	<%= link_to "Prep Styles", teafinder_tea_styles_path %>
+	<span>|</span>
 	
 	<% if session[:night_mode] == "on" %>
 		<a href="?night_mode=off">Disable Night Mode</a>

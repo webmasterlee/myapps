@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  get 'home/index'
-  root 'home#index'
+  
+  root 'teafinder/teas#index'
 
   namespace :teafinder do
     get 'teas/random'
