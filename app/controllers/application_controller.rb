@@ -6,8 +6,9 @@ class ApplicationController < ActionController::Base
   before_action :check_night_mode
 
   def check_night_mode
-  	session[:night_mode] ||= "off"
-  	session[:night_mode] = params[:night_mode] == "on" ? "on" : "off"
+  	if params[:night_mode]
+	  	session[:night_mode] = params[:night_mode]
+	end
   end
 
 end
