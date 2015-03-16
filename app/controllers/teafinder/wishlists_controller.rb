@@ -4,7 +4,7 @@ class Teafinder::WishlistsController < ApplicationController
   # GET /teafinder/wishlists
   # GET /teafinder/wishlists.json
   def index
-    @wishlists = Teafinder::Wishlist.all
+    @wishlists = Teafinder::Wishlist.where(:user_id => current_user.id)
   end
 
   # GET /teafinder/wishlists/1
@@ -64,11 +64,13 @@ class Teafinder::WishlistsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_teafinder_wishlist
-      @wishlist = Teafinder::Wishlist.find(params[:id])
+      @wishlist = Teafinder::Wishlist.find_by id: params[:id], user_id: current_user.id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teafinder_wishlist_params
-      params.require(:teafinder_wishlist).permit(:name, :notes, :url)
+      atts = params.require(:teafinder_wishlist).permit(:name, :notes, :url)
+      atts[:user_id] = current_user.id
+      atts
     end
 end

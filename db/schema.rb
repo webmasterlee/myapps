@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304180955) do
+ActiveRecord::Schema.define(version: 20150313161424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,13 +20,19 @@ ActiveRecord::Schema.define(version: 20150304180955) do
     t.string   "style"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "teafinder_tea_styles", ["user_id"], name: "index_teafinder_tea_styles_on_user_id", using: :btree
 
   create_table "teafinder_tea_types", force: true do |t|
     t.string   "type_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "teafinder_tea_types", ["user_id"], name: "index_teafinder_tea_types_on_user_id", using: :btree
 
   create_table "teafinder_teas", force: true do |t|
     t.string   "name"
@@ -37,10 +43,12 @@ ActiveRecord::Schema.define(version: 20150304180955) do
     t.datetime "updated_at"
     t.text     "notes"
     t.string   "url"
+    t.integer  "user_id"
   end
 
   add_index "teafinder_teas", ["tea_style_id"], name: "index_teafinder_teas_on_tea_style_id", using: :btree
   add_index "teafinder_teas", ["tea_type_id"], name: "index_teafinder_teas_on_tea_type_id", using: :btree
+  add_index "teafinder_teas", ["user_id"], name: "index_teafinder_teas_on_user_id", using: :btree
 
   create_table "teafinder_wishlists", force: true do |t|
     t.string   "name"
@@ -48,7 +56,10 @@ ActiveRecord::Schema.define(version: 20150304180955) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "teafinder_wishlists", ["user_id"], name: "index_teafinder_wishlists_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

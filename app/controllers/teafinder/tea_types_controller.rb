@@ -4,7 +4,7 @@ class Teafinder::TeaTypesController < ApplicationController
   # GET /teafinder/tea_types
   # GET /teafinder/tea_types.json
   def index
-    @tea_types = Teafinder::TeaType.all
+    @tea_types = Teafinder::TeaType.where(:user_id => current_user.id)
   end
 
   # GET /teafinder/tea_types/1
@@ -64,11 +64,13 @@ class Teafinder::TeaTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tea_type
-      @tea_type = Teafinder::TeaType.find(params[:id])
+      @tea_type = Teafinder::TeaType.find_by id: params[:id], user_id: current_user.id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tea_type_params
-      params.require(:teafinder_tea_type).permit(:type_name)
+      atts = params.require(:teafinder_tea_type).permit(:type_name)
+      atts[:user_id] = current_user.id
+      atts
     end
 end

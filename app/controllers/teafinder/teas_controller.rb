@@ -13,7 +13,7 @@ class Teafinder::TeasController < ApplicationController
       @sortType = params[:sortType] == "asc" ? "desc" : "asc" 
     end
 
-    @teas = Teafinder::Tea.teaSort(params, @sortType)
+    @teas = Teafinder::Tea.teaSort(params, @sortType, current_user.id)
 
   end
 
@@ -32,7 +32,7 @@ class Teafinder::TeasController < ApplicationController
   end
 
   def random
-    @tea = Teafinder::Tea.search(params)
+    @tea = Teafinder::Tea.search(params, current_user.id)
   end
 
   # POST /teafinder/teas
@@ -78,16 +78,18 @@ class Teafinder::TeasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tea
-      @tea = Teafinder::Tea.find(params[:id])
+      @tea = Teafinder::Tea.find_by id: params[:id], user_id: current_user.id
     end
 
     def get_dropdowns
-      @tea_types = Teafinder::TeaType.all
-      @tea_styles = Teafinder::TeaStyle.all
+      @tea_types = Teafinder::TeaType.where(:user_id => current_user.id)
+      @tea_styles = Teafinder::TeaStyle.where(:user_id => current_user.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tea_params
-      params.require(:teafinder_tea).permit(:name, :display, :tea_type_id, :tea_style_id, :url, :notes)
+      atts = params.require(:teafinder_tea).permit(:name, :display, :tea_type_id, :tea_style_id, :url, :notes)
+      atts[:user_id] = current_user.id
+      atts
     end
 end
