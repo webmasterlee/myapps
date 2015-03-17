@@ -380,7 +380,12 @@ textarea, input[type="text"], input[type="email"], input[type="password"], input
 input[type="file"]  {
 	height: auto;
 }
-select {padding: 5px 3px;}    
+select {
+	font-family: "Abel",Georgia,Arial,Helvetica,sans-serif;
+    font-size: inherit;
+    height: 45px;
+    padding: 5px 3px;
+}    
 .indent {margin-left: 20px;margin-top: 3px;}
 .hr {border-top:1px solid #bcbcbc;clear:both;height:1px;margin:10px 0;}
 hr {display:none;}
