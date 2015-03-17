@@ -1,7 +1,6 @@
 class Teafinder::TeasController < ApplicationController
   before_action :set_tea, only: [:show, :edit, :update, :destroy]
   before_action :get_dropdowns, only: [:new, :edit, :create, :random]
-  before_action :authenticate_user!, except: [:index, :random]
 
   # GET /teafinder/teas
   # GET /teafinder/teas.json
