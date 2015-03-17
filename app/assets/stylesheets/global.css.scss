@@ -255,7 +255,7 @@ a.selected {
 .red {color: red;}
 
 .btn {
-
+background-color: white;
 border: 2px solid #ff904c;
 color: #ff904c;
 display: inline-block;
@@ -416,6 +416,9 @@ hr {display:none;}
 }
 .night_mode .out_of_stock {
     color: #555;
+}
+.night_mode .btn {
+	background-color: #333333;
 }
 /*HOMEPAGE*/
 .app {
